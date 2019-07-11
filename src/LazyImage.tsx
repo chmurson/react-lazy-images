@@ -15,7 +15,7 @@ export interface LazyImageRenderPropArgs {
 
 export interface RefArg {
   /** When not loading eagerly, a ref to bind to the DOM element. This is needed for the intersection calculation to work. */
-  ref?: React.RefObject<any>;
+  ref?: React.RefObject<any> | ((node?: Element | null) => void);
 }
 
 export interface LazyImageProps extends CommonLazyImageProps {

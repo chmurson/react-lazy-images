@@ -11,7 +11,7 @@
     "dev": "npm-run-all bundle:prod storybook",
     "dev:ts": "tsc --watch --pretty",
     "clean": "rimraf dist/",
-    "build": "npm-run-all clean bundle:prod copy-defs size",
+    "build": "npm-run-all clean bundle:prod size",
     "bundle:prod": "microbundle build",
     "bundle:watch": "microbundle watch",
     "copy-defs": "tsc && cp -r ts-build/*.d.ts dist/",
@@ -65,7 +65,7 @@
   },
   "homepage": "https://github.com/fpapado/react-lazy-images#readme",
   "dependencies": {
-    "react-intersection-observer": "^6.1.0",
+    "react-intersection-observer": "^8.23.0",
     "unionize": "^2.1.2"
   },
   "peerDependencies": {

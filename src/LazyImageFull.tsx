@@ -1,5 +1,5 @@
 import React from "react";
-import Observer from "react-intersection-observer";
+import { InView } from "react-intersection-observer";
 import { unionize, ofType, UnionOf } from "unionize";
 
 /**
@@ -48,7 +48,7 @@ export interface RenderCallbackArgs {
   imageState: ImageState;
   imageProps: ImageProps;
   /** When not loading eagerly, a ref to bind to the DOM element. This is needed for the intersection calculation to work. */
-  ref?: React.RefObject<any>;
+  ref?: React.RefObject<any> | ((node?: Element | null) => void);
 }
 
 export interface ImageProps {
@@ -331,7 +331,7 @@ export class LazyImageFull extends React.Component<
       });
     } else {
       return (
-        <Observer
+        <InView
           rootMargin="50px 0px"
           // TODO: reconsider threshold
           threshold={0.01}
@@ -350,7 +350,7 @@ export class LazyImageFull extends React.Component<
               ref
             })
           }
-        </Observer>
+        </InView>
       );
     }
   }
